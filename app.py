@@ -67,6 +67,8 @@ def main():
     
 
     #show summary
+    if st.checkbox("Summary"):
+        st.write(df.describe().T)
     #Plot and visualization
 
 if __name__ =='__main__':
