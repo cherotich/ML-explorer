@@ -25,7 +25,22 @@ def main():
         selected_filename = st.selectbox("Selecte A file", filenames)
         return os.path.join(folder_path,selected_filename)
 
-    filname = file_selector()
+    filename = file_selector()
+    st.info("You have selected {}".format(filename))
+
+    #Read data
+    df = pd.read_csv(filename)
+ 
+
+    # Show dataset
+    if st.checkbox("Show Dataset"):
+        number = st.number_input("Number of Rows to view",5,10)
+        st.dataframe(df.head(number))
+    #show columns
+    #show shape
+    #show Values
+    #select columns
+    #show summary
 
 if __name__ =='__main__':
     main()
