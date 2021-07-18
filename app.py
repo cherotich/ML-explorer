@@ -72,7 +72,11 @@ def main():
     #Plot and visualization
     st.subheader("Data Visualization")
     #Correlation
+
     #Seaborn
+    if st.checkbox("Correlation Plot[Seaborn]"):
+        st.write(sns.heatmap(df.corr(),annot=True))
+        st.pyplot()
     #Count Plot
     #Pie Chart
     if st.checkbox("Pie Plot"):
@@ -81,6 +85,21 @@ def main():
            st.success("Generating Pie Plot" )
            st.write(df.iloc[:,-1].value_counts().plot.pie(autopct="%1.1f%%"))
            st.pyplot()
+    #count Plot
+    if st.checkbox("Plot of Value Counts"):
+        st.text("Value Counts By Target")
+        all_columns_names = df.columns.tolist()
+        primary_col = st.selectbox("Primary Column to GroupBy", all_columns_names)
+        selected_columns_names = st.multiselect("Select Columns", all_columns_names)
+        if st.button("Plot"):
+            st.text("Generate Plot")
+            if selected_columns_names:
+                vc_plot = df.groupby(primary_col)[selected_columns_names].count()
+            else:
+                vc_plot = df.iloc[:,-1].value_counts()
+            st.write(vc_plot.plot(kind="bar"))
+            st.pyplot()
+
        
     #Customizable plot
 
