@@ -34,10 +34,23 @@ def main():
 
     # Show dataset
     if st.checkbox("Show Dataset"):
-        number = st.number_input("Number of Rows to view",5,10)
+        number = st.number_input("Number of Rows to view max=10",5,10)
         st.dataframe(df.head(number))
     #show columns
+    if st.button("Show Column Names"):
+        st.write(df.columns)
     #show shape
+    if st.checkbox("Shape Of Dataset"):
+        st.write(df.shape)
+        data_dim = st.radio("Show Dimension By",("Rows","Columns"))
+        if data_dim == 'Rows':
+            st.text("Number of Rows")
+            st.write(df.shape[0])
+        if data_dim == 'Columns':
+            st.text("Number of Columns")
+            st.write(df.shape[1])
+        else:
+            st.write(df.shape)
     #show Values
     #select columns
     #show summary
