@@ -51,8 +51,14 @@ def main():
             st.write(df.shape[1])
         else:
             st.write(df.shape)
-    #show Values
     #select columns
+    if st.checkbox("Select Columns to show"):
+        all_columns = df.columns.tolist()
+        selected_columns = st.multiselect("Select", all_columns)
+        new_df = df[selected_columns]
+        st.dataframe(new_df)
+    #show Values
+
     #show summary
 
 if __name__ =='__main__':
