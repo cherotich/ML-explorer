@@ -75,6 +75,13 @@ def main():
     #Seaborn
     #Count Plot
     #Pie Chart
+    if st.checkbox("Pie Plot"):
+        all_columns_names = df.columns.tolist()
+        if st.button("Generate Pie Plot"):
+           st.success("Generating Pie Plot" )
+           st.write(df.iloc[:,-1].value_counts().plot.pie(autopct="%1.1f%%"))
+           st.pyplot()
+       
     #Customizable plot
 
     st.subheader("Customizable Plot")
