@@ -1,5 +1,5 @@
-# Basic machine learning explorer,
+# Basic machine learning explorer:
 
-## Select the dataset that is required,
+## Select the dataset that is required
 ## Perform data exploration
 ## Perform data visualization
