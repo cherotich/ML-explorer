@@ -58,8 +58,16 @@ def main():
         new_df = df[selected_columns]
         st.dataframe(new_df)
     #show Values
+    if st.button("Value Counts"):
+        st.text("Value Counts By Target/Class")
+        st.write(df.iloc[:,-1].value_counts())
+        #Data types
+    if st.button("Data Types"):
+        st.write(df.dtypes)
+    
 
     #show summary
+    #Plot and visualization
 
 if __name__ =='__main__':
     main()
